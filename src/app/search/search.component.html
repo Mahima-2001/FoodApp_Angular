@@ -1,0 +1,14 @@
+<div>
+  <input type="text" placeholder="Search Food from Mahima 😊 Food Corner " [(ngModel)]="searchItem" (change)="search()"/>
+  <button (click)="search()">Search</button>
+</div>
+
+<ul>
+  <li *ngFor="let food of foods">
+      <a routerLink="/food/{{food.id}}">
+        <img [src]="food.imageUrl" alt="food images">
+      </a>
+  </li>
+</ul>
+
+

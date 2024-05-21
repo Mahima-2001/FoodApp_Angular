@@ -1,0 +1,58 @@
+<div class="container">
+  <ul>
+    <li *ngFor="let item of cart.items">
+
+      <img style="height: 200px;
+      width: 300px;" src="{{item.food.imageUrl}}" alt="food images">
+
+      <div class="content">
+        <div class="name">
+          {{item.food.name}}
+        </div>
+        <!-- <span class="favorite {{item.food.favorite?'':'not'}}"></span>
+            // star rating
+        <div class="product-item-footer">
+          <div class="origins">
+            <span *ngFor="let origin of item.food.origins">
+              {{origin}}
+            </span>
+          </div>
+
+        </div>
+        -->
+      </div>
+
+      <div>
+        <select #quantitySelect (change)="changeQuantity(item, quantitySelect.value)">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+
+      <div class="price">
+        {{item.food.price|currency}}
+      </div>
+
+
+      <button class="remove-button" (click)="removeFromCart(item)">Remove</button>
+
+
+       <!-- <img [src]="item.food.imageUrl" [alt]="item.food.name"> -->
+    </li>
+  </ul>
+
+  <div class="checkout">
+     <div class="food-count">
+        {{cart.items.length}}
+     </div>
+
+     <div class="food-price">
+      {{cart.totalPrice | currency}}
+   </div>
+  </div>
+
+</div>
+
